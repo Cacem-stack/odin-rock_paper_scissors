@@ -1,6 +1,5 @@
-console.log("console test\n\n")
-let compChoice = "";
-let humanChoice = "";
+// console.log("console test\n\n")
+
 // Pseudocode
 
 // FUNCTION getComputerChoice
@@ -22,7 +21,6 @@ function getComputerChoice() {
   }
 }
 
-
 // FUNCTION END
 
 // FUNCTION getHumanChoice
@@ -40,6 +38,71 @@ function getHumanChoice() {
   }
 }
 
-console.log("Computer choice: " + getComputerChoice())
-getHumanChoice()
-console.log("Your choice: " + getHumanChoice())
+
+
+
+function playGame() {
+
+  let humanScore = 0;
+  let compScore = 0;
+
+
+  function playRound(humanChoice, compChoice) {
+    console.log("Computer choice: " + compChoice)
+    console.log("Your choice: " + humanChoice)
+    if (humanChoice == "rock" && compChoice == "rock") {
+      console.log("tie");
+      console.log(`Player points: ${humanScore}, Comp points: ${compScore}`);
+    } else if (humanChoice == "paper" && compChoice == "paper") {
+      console.log("tie");
+      console.log(`Player points: ${humanScore}, Comp points: ${compScore}`);
+    } else if (humanChoice == "scissor" && compChoice == "scissor") {
+      console.log("tie");
+      console.log(`Player points: ${humanScore}, Comp points: ${compScore}`);
+    } else if (humanChoice == "paper" && compChoice == "rock") {
+      console.log("Player gets a point.");
+      humanScore += 1;
+      console.log(`Player points: ${humanScore}, Comp points: ${compScore}`);
+    } else if (humanChoice == "paper" && compChoice == "scissor") {
+      console.log("Comp gets a point.");
+      compScore += 1;
+      console.log(`Player points: ${humanScore}, Comp points: ${compScore}`)
+    } else if (humanChoice == "rock" && compChoice == "paper") {
+      console.log("Comp gets a point.");
+      compScore += 1;
+      console.log(`Player points: ${humanScore}, Comp points: ${compScore}`)
+    } else if (humanChoice == "rock" && compChoice == "scissor") {
+      console.log("Player gets a point.");
+      humanScore += 1;
+      console.log(`Player points: ${humanScore}, Comp points: ${compScore}`);
+    } else if (humanChoice == "scissor" && compChoice == "rock") {
+      console.log("Comp gets a point.");
+      compScore += 1;
+      console.log(`Player points: ${humanScore}, Comp points: ${compScore}`)
+    } else if (humanChoice == "scissor" && compChoice == "paper") {
+      console.log("Player gets a point.");
+      humanScore += 1;
+      console.log(`Player points: ${humanScore}, Comp points: ${compScore}`);
+    } else {
+      console.log("Shouldn't be here");
+    }
+    console.log("\n\n")
+  }
+
+  playRound(getHumanChoice(), getComputerChoice())
+  playRound(getHumanChoice(), getComputerChoice())
+  playRound(getHumanChoice(), getComputerChoice())
+  playRound(getHumanChoice(), getComputerChoice())
+  playRound(getHumanChoice(), getComputerChoice())
+  if (humanScore == compScore) {
+    console.log("\nTie")
+  } else if (humanScore >= compScore) {
+    console.log("\nYou win")
+  } else {
+    console.log("\nComputer wins")
+  }
+
+
+}
+
+playGame()
